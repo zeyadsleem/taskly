@@ -2,7 +2,7 @@ export const theme = {
   colorCerulean: "#1a759f",
   colorWhite: "#fff",
   colorBlack: "#000",
-  colorGray: "geay",
-  colorLightGray: "#eee",
+  colorGrey: "grey",
+  colorLightGrey: "#eee",
   colorRed: "#ee6055",
 };
