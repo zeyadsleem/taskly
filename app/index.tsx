@@ -1,7 +1,7 @@
-import { StyleSheet, TextInput, View } from "react-native";
-import { theme } from "../theme";
-import { ShoppingListItem } from "../components/ShoppingListItem";
 import { useState } from "react";
+import { ScrollView, StyleSheet, TextInput } from "react-native";
+import { ShoppingListItem } from "../components/ShoppingListItem";
+import { theme } from "../theme";
 
 type ShoppingListItemType = {
   id: string;
@@ -31,7 +31,11 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+      stickyHeaderIndices={[0]}
+    >
       <TextInput
         placeholder="E.g. Coffee"
         style={styles.textInput}
@@ -43,7 +47,7 @@ export default function App() {
       {shoppingList.map((item) => (
         <ShoppingListItem name={item.name} key={item.id} />
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -53,6 +57,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colorWhite,
     paddingTop: 12,
   },
+  contentContainer: {
+    paddingBottom: 24,
+  },
   textInput: {
     borderColor: theme.colorLightGrey,
     borderWidth: 2,
@@ -61,5 +68,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     fontSize: 18,
     borderRadius: 15,
+    backgroundColor: theme.colorWhite,
   },
 });
